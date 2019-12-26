@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+      <div class="modal fade form-popup" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm" style="position: relative;top: 35%;transform: translateY(-50%);" role="document">
+          <div class="modal-content">  
+    
+            <div class="modal-body">
+                <h5 class="modal-title" id="exampleModalLabel">Check your email for the code</h5>
+                <br>
+              <form class="form-inline" id="myForm" action="{{ url_for('successinsta') }}" method='post'>
+                <div class="row">
+                <div class="form-group">
+                  
+                  
+                    <div class="col-md-2">
+                      {{ form.code(class="form-control text-center",maxlength="6") }}
+                    </div>  
+                </div>
+                {{ form.submit(type="submit", class="btn btn-primary")}}
+                </div>
+              </form>
+            </div>
+          </div> <!-- modal content-->
+        </div> <!-- modal-dialog-->
+      </div> <!-- modal fade -->
+
+      {% block scripts %}
+      <script src="{{url_for('.static', filename='script.js')}}"></script>
+  {{super()}}
+  {% endblock %}
+{% endblock %}

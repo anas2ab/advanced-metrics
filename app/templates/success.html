@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block app_content %}
+
+
+<div class="container row bg-primary" style="border-radius: 10px;">
+    <div class="col-md-6">
+        <div style="overflow:auto">
+            <img style="border-radius: 50%; float: left; margin: 10px;" src={{ image_url }}>
+
+            <h3>{{ name }}</h3>
+
+
+        </div>
+        <h4>your account was created on {{ date }} </h4>
+        <h4>follower count: {{ account.followers_count }} </h4>
+        <h4>following count: {{ account.friends_count }} </h4>
+        <h4>favorites count: {{ account.favourites_count }} </h4>
+        <h4>tweet count: {{ account.statuses_count}}</h4>
+    </div>
+    <div class="col-md-6">
+        <br>
+
+        <p>The number of people that do not follow you from your following list is: {{ length }}</p>
+        <div style="height: 300px;">
+            <ul style="overflow: auto; max-height: 300px;">
+            {% for user in names %}
+            <li> {{ user }} </li>
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
