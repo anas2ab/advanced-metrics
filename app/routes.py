@@ -28,7 +28,9 @@ def successinsta():
     api = insta_info.createAPI(user, pw)
     if (api.login()):
         names = insta_info.getNotFollowing(api, api.username_id)
-        return render_template('success-insta.html', names=names, length=len(names), user=user)
+        followers = insta_info.getTotalFollowers(api, api.username_id)
+        following = insta_info.getTotalFollowing(api, api.username_id)
+        return render_template('success-insta.html', names=names, length=len(names), user=user, followers=len(followers), following=len(following))
     else:
         return redirect(url_for('captchacode'))
 
