@@ -1,8 +1,8 @@
 FROM python:latest
 
-RUN useradd -ms /bin/bash webapp
+RUN useradd -ms /bin/bash yourmetrics
 
-WORKDIR /home/webapp
+WORKDIR /home/yourmetrics
 
 COPY requirements.txt requirements.txt
 
@@ -17,9 +17,9 @@ COPY config.py private.py ./
 
 ENV FLASK_APP app/__init__.py
 
-RUN chown -R webapp:webapp ./
+RUN chown -R yourmetrics:yourmetrics ./
 
-USER webapp
+USER yourmetrics
 
 EXPOSE 5000
 
