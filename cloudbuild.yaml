@@ -1,0 +1,4 @@
+steps:
+# Deploy an image from Container Registry to Cloud Run
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['run', 'deploy', 'youradv-00002-dil', '--image', 'gcr.io/twit-web-app/webappimage', '--region', us-east1, '--platform', 'managed', '--allow-unauthenticated']
