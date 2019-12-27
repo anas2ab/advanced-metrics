@@ -12,9 +12,8 @@ RUN pip install gunicorn
 
 
 COPY app app
-COPY config.py private.py boot.sh ./
+COPY config.py private.py ./
 
-RUN chmod +x boot.sh
 
 ENV FLASK_APP app/__init__.py
 
