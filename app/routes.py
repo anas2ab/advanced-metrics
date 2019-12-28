@@ -31,17 +31,15 @@ def successinsta():
         followers = insta_info.getTotalFollowers(api, api.username_id)
         following = insta_info.getTotalFollowing(api, api.username_id)
         return render_template('success-insta.html', names=names, length=len(names), user=user, followers=len(followers), following=len(following))
-    else:
-        return redirect(url_for('captchacode'))
 
 
-@app.route('/captcha', methods=['GET','POST'])
+""" @app.route('/captcha', methods=['GET','POST'])
 def captchacode():
     cap = True
     form = ModalForm()
     if form.validate_on_submit():
         return redirect(url_for('successinsta'))
-    return render_template('code.html', form=form)
+    return render_template('code.html', form=form) """
 
 @app.route('/twitinfo', methods=['GET','POST'])
 def twitinfo():
@@ -70,5 +68,5 @@ def success():
     image_url = user_info.my_api.get_user(user).profile_image_url
     diff_list = user_info.get_difference_in_followers(user) 
     for user_id in diff_list:
-        names.append(user_info.my_api.get_user(user_id).name)
+        names.append(user_info.my_api.get_user(user_id).screen_name)
     return render_template('success.html', names=names, length=len(diff_list), image_url=image_url, name=user, account=account, date=date)
