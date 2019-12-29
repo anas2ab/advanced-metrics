@@ -1,4 +1,4 @@
 import os
 
 class Config(object):
-    SECRET_KEY = os.environ.get('SECRET_KEY') or 'you-will-never-guess'
+    SECRET_KEY = b'%&\xacD\xa5\xf3\xebj\xa7\x8dg\xdf#\xd0\xcd\xe5'

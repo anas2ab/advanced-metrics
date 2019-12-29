@@ -70,3 +70,5 @@ def success():
     for user_id in diff_list:
         names.append(user_info.my_api.get_user(user_id).screen_name)
     return render_template('success.html', names=names, length=len(diff_list), image_url=image_url, name=user, account=account, date=date)
+
+

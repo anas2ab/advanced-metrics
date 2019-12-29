@@ -15,29 +15,33 @@
             <small>advanced metrics</small>
         </h1>
     </center>
-    <div class="container"> {% if names %}<a class="btn btn-default" style="text-decoration:none" href="/">Home</a> {% endif %}
+    <div class="container"> {% if names or form %}<a class="btn btn-default" style="text-decoration:none" href="/">Home</a> {% endif %}
         <hr>
         <br>
         {% if form or names or cap %}
 
         {% else %}
         <center>
-
-        <h3>Choose which site you would like information from</h3> <br>
+            
+        <h3>which site would you like information from?</h3> <br>
         <div class="row">
 
             <div class="col-sm-3 col-md-3">
 
             </div>
             <div class="col-xs-6 col-sm-3 col-md-3">
-                <a class="btn btn-primary btn-lg btn-block" style="text-decoration:none" href="/twitinfo">Twitter</a>
+                <a class="btn btn-default btn-lg btn-block" style=color:#337ab7; text-decoration:none" href="/twitinfo">Twitter</a>
                 
             </div>
             <div class="col-xs-6 col-sm-3 col-md-3">
                 <a class="btn btn-default btn-lg btn-block" style="color:#dd2a7b; text-decoration:none" href="/instainfo">Instagram</a>
             </div>
         </div>
-
+        <br>
+        <div>
+            <p> this website is designed to help you find out who stopped following you so you can unfollow them too!</p>
+            <p> *please be aware that getting this information takes a while; currently only supporting instagram and twitter*</p>
+        </div>
         </center>    
         {% endif %}
         
