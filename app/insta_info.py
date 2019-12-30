@@ -23,7 +23,7 @@ def getTotalFollowing(api, user_id):
         following.extend(api.LastJson.get('users', []))
         next_max_id = api.LastJson.get('next_max_id', '')       
 
-        return following
+    return following
 
 def getTotalFollowers(api, user_id):
     """
