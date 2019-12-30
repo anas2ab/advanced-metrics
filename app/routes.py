@@ -31,7 +31,8 @@ def successinsta():
         followers = insta_info.getTotalFollowers(api, api.username_id)
         following = insta_info.getTotalFollowing(api, api.username_id)
         return render_template('success-insta.html', names=names, length=len(names), user=user, followers=len(followers), following=len(following))
-
+    else:
+        return('404.html')
 
 """ @app.route('/captcha', methods=['GET','POST'])
 def captchacode():
