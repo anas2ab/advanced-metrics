@@ -101,7 +101,7 @@ def success():
     user = session['twituser']
     if user_info.tweep.TweepError:
         form = TwitInfoForm()
-        flash('The username/password you have entered is incorrect.', 'error')
+        flash('The username you have entered is incorrect.', 'error')
         return render_template('index.html', form=form)
     else:
         account = user_info.my_api.get_user(user)
