@@ -2,6 +2,17 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block app_content %}
+<div class="row">
+  <div class="col-xs-3 col-sm-3 col-md-4">
+
+  </div>
+  <div class="col-xs-6 col-sm-6 col-md-4" style="background-color:#dd2a7b; color:white; padding: 20px; border-radius: 10px;">
+      
+      {{ wtf.quick_form(oldForm) }}
+      
+  </div>
+</div>
+
       <div class="modal fade form-popup" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-sm" style="position: relative;top: 35%;transform: translateY(-50%);" role="document">
           <div class="modal-content">  
@@ -11,15 +22,21 @@
                 <br>
               <form class="form-inline" id="myForm" action="{{ url_for('successinsta') }}" method='post'>
                 <div class="row">
-                <div class="form-group">
-                  
-                  
+                <div class="input-group">
+                  <table class="form-inline">
+
                     <div class="col-md-2">
                       {{ form.code(class="form-control text-center",maxlength="6") }}
                     </div>  
-                </div>
-                {{ form.submit(type="submit", class="btn btn-primary")}}
-                </div>
+
+
+                    <span class="input-group-btn">
+                      {{ form.submit(type="submit", class="btn btn-default", style="color:#dd2a7b;")}}
+                    </span>
+    
+                  </table>
+                    </div>
+                    </div>
               </form>
             </div>
           </div> <!-- modal content-->

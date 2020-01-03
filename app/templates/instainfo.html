@@ -3,12 +3,28 @@
 
 {% block app_content %}
 
+
+
+<div class="row">
+    <div class="col-xs-3 col-sm-3 col-md-4">
+
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-4">
+        {% with messages = get_flashed_messages() %}
+{% if messages %} 
+{% for message in messages%}
+    <div class="alert alert-danger" role="alert">{{ message }}</div>
+    {% endfor %}
+{% endif %}
+{% endwith %}
+    </div>
+</div>
 <div class="row">
     <div class="col-xs-3 col-sm-3 col-md-4">
 
     </div>
     <div class="col-xs-6 col-sm-6 col-md-4" style="background-color:#dd2a7b; color:white; padding: 20px; border-radius: 10px;">
-        
+
         {{ wtf.quick_form(form) }}
         
     </div>

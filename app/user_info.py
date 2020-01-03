@@ -1,7 +1,7 @@
 import private
 
 my_api = private.api
-
+tweep = private.tweepy
 
 def get_difference_in_followers(account):
     user = my_api.get_user(account)
