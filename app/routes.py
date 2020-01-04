@@ -35,9 +35,9 @@ def successinsta():
         if(api.LastJson['error_type'] == 'bad_password'):
             form = InstaInfoForm()
             flash('The username/password you have entered is incorrect.', 'error')
-            return render_template('instainfo.html', form=form)
+            return redirect(url_for('instainfo'))
         else:
-            return render_template('instainfo.html', form=form)
+            return redirect(url_for('instainfo'))
         """         if(api.LastJson['message'] == 'challenge_required'):
             path = api.LastJson['challenge']['api_path'][1:]
             session['path'] = path
@@ -99,18 +99,12 @@ def format_datetime(value, format='medium'):
 def success():
     names = []
     user = session['twituser']
-    if user_info.tweep.TweepError:
-        form = TwitInfoForm()
-        flash('The username you have entered is incorrect.', 'error')
-        return render_template('index.html', form=form)
-    else:
-        account = user_info.my_api.get_user(user)
-        date = format_datetime(account.created_at)
-        image_url = user_info.my_api.get_user(user).profile_image_url
-        diff_list = user_info.get_difference_in_followers(user) 
-        for user_id in diff_list:
-            names.append(user_info.my_api.get_user(user_id).screen_name)
-        return render_template('success.html', names=names, length=len(diff_list), image_url=image_url, name=user, account=account, date=date)
 
-
-
+    account = user_info.my_api.get_user(user)
+    date = format_datetime(account.created_at)
+    image_url = user_info.my_api.get_user(user).profile_image_url
+    diff_list = user_info.get_difference_in_followers(user) 
+    for user_id in diff_list:
+        names.append(user_info.my_api.get_user(user_id).screen_name)
+    return render_template('success.html', names=names, length=len(diff_list), image_url=image_url, name=user, account=account, date=date)
+    
