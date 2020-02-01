@@ -2,14 +2,6 @@ from InstagramAPI import InstagramAPI
 import time
 import os 
 
-""" username = 'anasboot'
-password = 'soccer1BUTT' 
-
-
-
-api = InstagramAPI(username,password)
-api.login()
-time.sleep(2) """
 def createAPI(username, password):
     return InstagramAPI(username, password, False, os.path.dirname(os.path.abspath(__file__)))
 
